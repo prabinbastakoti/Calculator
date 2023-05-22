@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -43,7 +45,7 @@ main {
     position: absolute;
     right: 0;
     color: rgba(255, 255, 255, 0.82);
-    font-size: 60px;
+    font-size: 52px;
     margin-right: 1rem;
     font-weight: 400;
     margin-bottom: 6rem;
@@ -109,22 +111,22 @@ main {
     position: absolute;
     font-size: 48px;
     font-weight: 400;
-    top: 18%;
-    right: 34%;
+    top: 7%;
+    right: 32%;
 }
 
 .text2 {
     position: absolute;
     font-size: 36px;
     font-weight: 400;
-    top: 24%;
-    right: 22%;
+    top: 18%;
+    right: 19%;
 }
 .text3 {
     position: absolute;
     font-size: 40px;
     font-weight: 500;
-    top: 22%;
+    top: 13%;
     right: 33%;
 }
 
@@ -132,29 +134,26 @@ main {
     position: absolute;
     font-size: 48px;
     font-weight: 400;
-    top: 15%;
-    right: 70%;
+    top: 5%;
+    right: 68%;
 }
 
 .text5 {
     position: absolute;
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 400;
-    top: 21%;
-    right: 19%;
+    top: 22%;
+    right: 16%;
 }
 
 .text6 {
     position: absolute;
     font-size: 48px;
     font-weight: 400;
-    top: 18%;
-    right: 34%;
+    top: 8%;
+    right: 31%;
 }
 
-.text5 .symbol {
-    font-size: 42px;
-}
 
 
 /* Responsive Design */
