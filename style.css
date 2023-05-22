@@ -149,3 +149,65 @@ main {
     top: 23%;
     right: 38%;
 }
+
+
+
+
+/* Responsive Design */
+
+@media screen and ( max-width: 390px){
+
+    main {
+        bottom: 5%;
+    }
+
+    .button1, .button2, .button3 {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .button4 {
+        height: 5rem;
+        width: 11rem;
+    }
+
+    .first-row, .second-row, .third-row, .fourth-row, .fifth-row {
+        margin-right: 2.4rem;
+    }
+
+
+    .text {
+        top: 18%;
+        right: 34%;
+    }
+
+    .text2 {
+        top: 18%;
+        right: 12%;
+    }
+
+    .text3 {
+        top: 13%;
+        right: 26%;
+    }
+
+    .text4 {
+        top: 15%;
+        right: 70%;
+    }
+
+    .text5 {
+        top: 15%;
+        right: 35%;
+    }
+
+    .text6 {
+        top: 18%;
+        right: 34%;
+    }
+
+    .display-screen {
+        font-size: 48px;
+    }
+}
+    
