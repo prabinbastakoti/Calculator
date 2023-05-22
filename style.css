@@ -32,7 +32,7 @@ main {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-    margin-right: 3rem;
+    margin-right: 2.4rem;
 }
 
 .first-row{
@@ -43,10 +43,10 @@ main {
     position: absolute;
     right: 0;
     color: white;
-    font-size: 54px;
+    font-size: 48px;
     margin-right: 0.5rem;
     font-weight: 500;
-    margin-bottom: 9rem;
+    margin-bottom: 6rem;
 }
 
 .sixth-row {
@@ -66,8 +66,8 @@ main {
 .button1 {
     background-color: #a2a2a0;
     color: black;
-    width: 6rem;
-    height: 6rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: 50%;
     position: relative;
 }
@@ -75,8 +75,8 @@ main {
 .button2 {
     background-color: #FF9500;
     color: white;
-    width: 6rem;
-    height: 6rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: 50%;
     position: relative;
 
@@ -85,8 +85,8 @@ main {
 .button3 {
     background-color: #505050;
     color: white;
-    width: 6rem;
-    height: 6rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: 50%;
     position: relative;
 
@@ -96,8 +96,8 @@ main {
 .button4 {
     background-color: #505050;
     color: white;
-    height: 6rem;
-    width: 13rem;
+    height: 5rem;
+    width: 11rem;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
@@ -109,50 +109,52 @@ main {
     position: absolute;
     font-size: 48px;
     font-weight: 400;
-    top: 22%;
-    right: 40%;
+    top: 18%;
+    right: 34%;
 }
 
 .text2 {
     position: absolute;
-    font-size: 48px;
+    font-size: 44px;
     font-weight: 400;
-    top: 23%;
-    right: 18%;
+    top: 18%;
+    right: 14%;
 }
 .text3 {
     position: absolute;
-    font-size: 54px;
+    font-size: 40px;
     font-weight: 500;
-    top: 19%;
-    right: 27%;
+    top: 22%;
+    right: 33%;
 }
 
 .text4 {
     position: absolute;
     font-size: 48px;
     font-weight: 500;
-    top: 22%;
+    top: 15%;
     right: 70%;
 }
 
 .text5 {
     position: absolute;
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 400;
-    top: 20%;
-    right: 22%;
+    top: 21%;
+    right: 19%;
 }
 
 .text6 {
     position: absolute;
     font-size: 48px;
     font-weight: 400;
-    top: 23%;
-    right: 38%;
+    top: 18%;
+    right: 34%;
 }
 
-
+.text5 .symbol {
+    font-size: 42px;
+}
 
 
 /* Responsive Design */
@@ -164,61 +166,8 @@ main {
         height: 86vh;
     }
 
-    .display-screen {
-        margin-bottom: 5rem;
-    }
-    
     main {
-        bottom: 5%;
-    }
-
-    .button1, .button2, .button3 {
-        width: 5rem;
-        height: 5rem;
-    }
-
-    .button4 {
-        height: 5rem;
-        width: 11rem;
-    }
-
-    .first-row, .second-row, .third-row, .fourth-row, .fifth-row {
-        margin-right: 2.4rem;
-    }
-
-
-    .text {
-        top: 18%;
-        right: 34%;
-    }
-
-    .text2 {
-        top: 18%;
-        right: 12%;
-    }
-
-    .text3 {
-        top: 13%;
-        right: 26%;
-    }
-
-    .text4 {
-        top: 15%;
-        right: 70%;
-    }
-
-    .text5 {
-        top: 15%;
-        right: 15%;
-    }
-
-    .text6 {
-        top: 18%;
-        right: 34%;
-    }
-
-    .display-screen {
-        font-size: 48px;
+        bottom: 2%;
     }
 }
     
