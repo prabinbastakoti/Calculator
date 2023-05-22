@@ -8,14 +8,17 @@
 }
 
 body {
-    background-color: #1C1C1C;
+    background-color: #000000;
+    max-height: 100vh;
     height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: space-around;
     position: relative;
 }
 
 main {
+    height: 58%;
     position: absolute;
     bottom: 8%;
     display: flex;
@@ -156,6 +159,12 @@ main {
 /* Responsive Design */
 
 @media screen and ( max-width: 390px){
+
+
+    body {
+        max-height: 60vh;
+        height: 60vh;
+    }
 
     main {
         bottom: 5%;
