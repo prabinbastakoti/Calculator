@@ -158,15 +158,6 @@ main {
 /* Responsive Design */
 
 @media screen and ( max-width: 390px){
-
-
-    body {
-        height: 80vh;
-    }
-
-    .display-screen {
-        margin-bottom: 5rem;
-    }
     
     main {
         bottom: 5%;
