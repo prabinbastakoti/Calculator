@@ -18,7 +18,6 @@ body {
 }
 
 main {
-    height: 58%;
     position: absolute;
     bottom: 8%;
     display: flex;
@@ -162,10 +161,13 @@ main {
 
 
     body {
-        max-height: 60vh;
-        height: 60vh;
+        height: 73vh;
     }
 
+    .display-screen {
+        margin-bottom: 5rem;
+    }
+    
     main {
         bottom: 5%;
     }
