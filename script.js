@@ -53,6 +53,7 @@
 // Define Variable for each element in DOM
 
 const display = document.querySelector('.display-screen');
+
 let displayText = Array.from(document.querySelector('.display-screen').textContent);
 
 const clear = document.querySelector('.clear');
@@ -95,20 +96,20 @@ function clearScreen() {
 
 function changeSign() {
 
-    if (displayText.length == 1 && displayText[0] == '0'){
+    if (displayText.length == 1 && displayText[0] == '0') {
         return;
     }
 
     // Add '-' at the beginning
 
-    if (displayText[0]!='-') {
+    if (displayText[0] != '-') {
         displayText.unshift("-");
         display.textContent = displayText.join("");
     }
 
     // Remove '-' from the beginning
 
-    else if (displayText[0] == '-'){
+    else if (displayText[0] == '-') {
         displayText.shift("-");
         display.textContent = displayText.join("");
     }
@@ -118,7 +119,22 @@ function changeSign() {
 // ALgorithm For Percentage 
 
 function percent() {
-    display.textContent = (parseInt(displayText.join(""))) / 100;
+
+    let value = ((Number(displayText.join(""))) / 100);
+    displayText = [value];
+    displayText = displayText.toString().split('');
+
+    if (displayText.length > 10) {
+        let newValue = Number(displayText.join('')).toExponential(3);
+        displayText = [newValue];
+        displayText = displayText.toString().split('');
+        display.textContent = displayText.join('');
+    }
+    else {
+        display.textContent = displayText.join('');
+    }
+    
+
 }
 
 
