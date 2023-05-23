@@ -52,7 +52,11 @@
 
 // Define Variable for each element in DOM
 
+const display = document.querySelector('.display-screen');
+let displayText = Array.from(document.querySelector('.display-screen').textContent);
+
 const clear = document.querySelector('.clear');
+
 const sign = document.querySelector('.sign');
 const percentage = document.querySelector('.percentage');
 const divide = document.querySelector('.divide');
@@ -81,6 +85,43 @@ const decimal = document.querySelector('.decimal');
 
 // Write funtion for clearScreen
 
-const clearScreen = clear.addEventListener("click", (e) => {
-    
-});
+function clearScreen() {
+    displayText = [0];
+    display.textContent = displayText;
+};
+
+
+// Change Negative or Positive sign
+
+function changeSign() {
+
+    if (displayText.length == 1 && displayText[0] == '0'){
+        return;
+    }
+
+    // Add '-' at the beginning
+
+    if (displayText[0]!='-') {
+        displayText.unshift("-");
+        display.textContent = displayText.join("");
+    }
+
+    // Remove '-' from the beginning
+
+    else if (displayText[0] == '-'){
+        displayText.shift("-");
+        display.textContent = displayText.join("");
+    }
+}
+
+
+// ALgorithm For Percentage 
+
+function percent() {
+    display.textContent = (parseInt(displayText.join(""))) / 100;
+}
+
+
+clear.addEventListener('click', clearScreen);
+sign.addEventListener('click', changeSign);
+percentage.addEventListener('click', percent);

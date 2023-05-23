@@ -72,6 +72,8 @@ main {
     height: 5rem;
     border-radius: 50%;
     position: relative;
+    cursor: pointer;
+    outline: none;
 }
 
 .button2 {
@@ -81,6 +83,8 @@ main {
     height: 5rem;
     border-radius: 50%;
     position: relative;
+    cursor: pointer;
+    outline: none;
 
 }
 
@@ -91,6 +95,8 @@ main {
     height: 5rem;
     border-radius: 50%;
     position: relative;
+    cursor: pointer;
+    outline: none;
 
 }
 
@@ -105,6 +111,8 @@ main {
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     position: relative;
+    cursor: pointer;
+    outline: none;
 }
 
 .text {
@@ -154,6 +162,11 @@ main {
     right: 31%;
 }
 
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
 
 
 /* Responsive Design */
@@ -177,7 +190,7 @@ main {
 
 /* For AC, +/-, Percentage  */
 .buttonEffect1 {
-    filter: brightness(1.2);
+    filter: brightness(1.3);
 }
 
 /* For 0-9 & . */
@@ -193,6 +206,33 @@ main {
 
 /* For equal sign */
 .buttonEffect4 {
+    background-color: #c79851;
+    filter: brightness(1.2);
+}
+
+
+
+
+
+
+
+
+
+.button1:hover {
+    filter: brightness(1.3);
+}
+
+.divide:hover, .multiply:hover, .subtract:hover,
+.add:hover {
+    color: #FF9500;
+    background-color: white;
+}
+
+.button3:hover, .button4:hover {
+    filter: brightness(2.5);
+}
+
+.equal-sign:hover {
     background-color: #c79851;
     filter: brightness(1.2);
 }
