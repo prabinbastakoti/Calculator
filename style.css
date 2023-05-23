@@ -170,3 +170,29 @@ main {
     }
 }
     
+
+
+
+/* Filter Classes on click*/
+
+/* For AC, +/-, Percentage  */
+.buttonEffect1 {
+    filter: brightness(1.2);
+}
+
+/* For 0-9 & . */
+.buttonEffect2 {
+    filter: brightness(2.5);
+}
+
+/* For Operators except equals sign*/
+.buttonEffect3 {
+    color: #FF9500;
+    background-color: white;
+}
+
+/* For equal sign */
+.buttonEffect4 {
+    background-color: #c79851;
+    filter: brightness(1.2);
+}
