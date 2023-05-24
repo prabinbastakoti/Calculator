@@ -9,6 +9,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+
 body {
     background-color: #000000;
     max-height: 100vh;
@@ -65,108 +71,52 @@ main {
     justify-content: space-between;
 }
 
-.button1 {
-    background-color: #a2a2a0;
-    color: black;
+button {
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
-    position: relative;
+    font-size: 36px;
     cursor: pointer;
     outline: none;
+    border: none;
+}
+
+.sign {
+    font-size: 28px;
+}
+
+.button1 {
+    background-color: #a2a2a0;
+    color: black;
 }
 
 .button2 {
     background-color: #FF9500;
     color: rgba(255, 255, 255, 0.8);
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    position: relative;
-    cursor: pointer;
-    outline: none;
-
 }
 
 .button3 {
     background-color: #50505096;
     color: rgba(255, 255, 255, 0.8);
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    position: relative;
-    cursor: pointer;
-    outline: none;
-
 }
 
 
 .button4 {
     background-color:  #50505096;
     color: rgba(255, 255, 255, 0.8);
-    height: 5rem;
     width: 11rem;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     position: relative;
-    cursor: pointer;
-    outline: none;
 }
 
-.text {
+.zero-txt {
     position: absolute;
-    font-size: 48px;
-    font-weight: 400;
-    top: 7%;
-    right: 32%;
+    top: 19%;
+    right: 70%;
 }
-
-.text2 {
-    position: absolute;
-    font-size: 36px;
-    font-weight: 400;
-    top: 18%;
-    right: 19%;
-}
-.text3 {
-    position: absolute;
-    font-size: 40px;
-    font-weight: 500;
-    top: 13%;
-    right: 33%;
-}
-
-.text4 {
-    position: absolute;
-    font-size: 48px;
-    font-weight: 400;
-    top: 5%;
-    right: 68%;
-}
-
-.text5 {
-    position: absolute;
-    font-size: 32px;
-    font-weight: 400;
-    top: 22%;
-    right: 16%;
-}
-
-.text6 {
-    position: absolute;
-    font-size: 48px;
-    font-weight: 400;
-    top: 8%;
-    right: 31%;
-}
-
-.prevent-select {
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-  }
 
 
 /* Responsive Design */
@@ -183,7 +133,6 @@ main {
     }
 }
     
-
 
 
 /* Filter Classes on click*/

@@ -86,6 +86,17 @@ const decimal = document.querySelector('.decimal');
 
 // Write funtion for clearScreen
 
+
+window.addEventListener('click' , function() {
+    if (!(displayText.length == 1 && displayText[0] == '0')) {
+        clear.textContent = "C";
+    }
+    else {
+        clear.textContent = "AC";
+    }
+});
+
+
 function clearScreen() {
     displayText = [0];
     display.textContent = displayText;
