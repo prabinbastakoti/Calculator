@@ -333,6 +333,15 @@ function oneDigit() {
 
 function decimalDigit() {
 
+    for (let i = 0; i < displayText.length ; i++) {
+        if (displayText[i] == '.'){
+            return;
+        }
+        if (displayText[i] == 'e'){
+            displayText = [0];
+        }
+    }
+
     displayText.push(".");
     
     display.textContent = displayText.join("");
