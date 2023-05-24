@@ -106,25 +106,26 @@ window.addEventListener('click', function () {
         if (displayText[0] != '-') {
 
             display.textContent = displayText.slice(0,9).join('');
+            displayText = display.textContent.toString().split('');
+
+        }
+        else if (displayText[0] == '-') {
+
+            display.textContent = displayText.slice(0,10).join('');
+            displayText = display.textContent.toString().split('');
+
         }
     }
-
-    if (displayText.length > 10) {
-        let newValue = Number(displayText.join('')).toExponential(3);
-        displayText = [newValue];
-        displayText = displayText.toString().split('');
-        display.textContent = displayText.join('');
-    }
-    else {
-        display.textContent = displayText.join('');
-    }
+    
 
 });
 
 
 function clearScreen() {
+
     displayText = [0];
     display.textContent = displayText;
+    
 };
 
 
@@ -136,19 +137,35 @@ function changeSign() {
         return;
     }
 
+    if (displayText.length >= 9) {
+
+        if (displayText[0] != '-') {
+            displayText.unshift("-");
+            display.textContent = displayText.slice(0,10).join("");
+            displayText = display.textContent.toString().split('');
+
+        }
+        else if (displayText[0] == '-') {
+            displayText.shift("-");
+            
+            display.textContent = displayText.join("");
+        }
+    }
     // Add '-' at the beginning
-
-    if (displayText[0] != '-') {
-        displayText.unshift("-");
-        display.textContent = displayText.join("");
+    else {
+        if (displayText[0] != '-') {
+            displayText.unshift("-");
+            display.textContent = displayText.join("");
+        }
+    
+        // Remove '-' from the beginning
+    
+        else if (displayText[0] == '-') {
+            displayText.shift("-");
+            display.textContent = displayText.join("");
+        }
     }
-
-    // Remove '-' from the beginning
-
-    else if (displayText[0] == '-') {
-        displayText.shift("-");
-        display.textContent = displayText.join("");
-    }
+    
 }
 
 
@@ -160,9 +177,199 @@ function percent() {
     displayText = [value];
     displayText = displayText.toString().split('');
 
+    if (displayText.length > 10) {
+        let newValue = Number(displayText.join('')).toExponential(3);
+        displayText = [newValue];
+        displayText = displayText.toString().split('');
+        display.textContent = displayText.join('');
+    }
+    else {
+        display.textContent = displayText.join('');
+    }
 }
 
+
+function nineDigit() {
+
+    if (displayText.length == 1 && displayText[0] == '0') {
+
+        displayText = [9];
+
+    }
+    else {
+
+        displayText.push("9");
+
+    }
+    
+    display.textContent = displayText.join("");
+}
+
+function eightDigit() {
+
+    if (displayText.length == 1 && displayText[0] == '0') {
+
+        displayText = [8];
+        
+    }
+    else {
+
+        displayText.push("8");
+
+    }
+    
+    display.textContent = displayText.join("");
+}
+
+function sevenDigit() {
+
+    if (displayText.length == 1 && displayText[0] == '0') {
+
+        displayText = [7];
+        
+    }
+    else {
+
+        displayText.push("7");
+
+    }
+    
+    display.textContent = displayText.join("");
+}
+
+function sixDigit() {
+
+    if (displayText.length == 1 && displayText[0] == '0') {
+
+        displayText = [6];
+        
+    }
+    else {
+
+        displayText.push("6");
+
+    }
+    
+    display.textContent = displayText.join("");
+}
+
+function fiveDigit() {
+
+    if (displayText.length == 1 && displayText[0] == '0') {
+
+        displayText = [5];
+        
+    }
+    else {
+
+        displayText.push("5");
+
+    }
+    
+    display.textContent = displayText.join("");
+}
+
+function fourDigit() {
+
+    if (displayText.length == 1 && displayText[0] == '0') {
+
+        displayText = [4];
+        
+    }
+    else {
+
+        displayText.push("4");
+
+    }
+    
+    display.textContent = displayText.join("");
+}
+
+function threeDigit() {
+
+    if (displayText.length == 1 && displayText[0] == '0') {
+
+        displayText = [3];
+        
+    }
+    else {
+
+        displayText.push("3");
+
+    }
+    
+    display.textContent = displayText.join("");
+}
+
+function twoDigit() {
+
+    if (displayText.length == 1 && displayText[0] == '0') {
+
+        displayText = [2];
+        
+    }
+    else {
+
+        displayText.push("2");
+
+    }
+    
+    display.textContent = displayText.join("");
+}
+
+function oneDigit() {
+
+    if (displayText.length == 1 && displayText[0] == '0') {
+
+        displayText = [1];
+        
+    }
+    else {
+
+        displayText.push("1");
+
+    }
+    
+    display.textContent = displayText.join("");
+}
+
+function decimalDigit() {
+
+    displayText.push(".");
+    
+    display.textContent = displayText.join("");
+}
+
+function zeroDigit() {
+
+    if (displayText.length == 1 && displayText[0] == '0') {
+
+        displayText = [0];
+        
+    }
+    else {
+
+        displayText.push("0");
+
+    }
+    
+    display.textContent = displayText.join("");
+}
 
 clear.addEventListener('click', clearScreen);
 sign.addEventListener('click', changeSign);
 percentage.addEventListener('click', percent);
+
+nine.addEventListener('click', nineDigit);
+eight.addEventListener('click', eightDigit);
+seven.addEventListener('click', sevenDigit);
+six.addEventListener('click', sixDigit);
+five.addEventListener('click', fiveDigit);
+four.addEventListener('click', fourDigit);
+three.addEventListener('click', threeDigit);
+two.addEventListener('click', twoDigit);
+one.addEventListener('click', oneDigit);
+zero.addEventListener('click', zeroDigit);
+decimal.addEventListener('click', decimalDigit);
+
+
