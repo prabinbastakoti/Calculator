@@ -87,13 +87,38 @@ const decimal = document.querySelector('.decimal');
 // Write funtion for clearScreen
 
 
-window.addEventListener('click' , function() {
+window.addEventListener('click', function () {
+
     if (!(displayText.length == 1 && displayText[0] == '0')) {
+
         clear.textContent = "C";
+        
     }
     else {
+
         clear.textContent = "AC";
+
     }
+
+
+    if (displayText.length >= 9) {
+
+        if (displayText[0] != '-') {
+
+            display.textContent = displayText.slice(0,9).join('');
+        }
+    }
+
+    if (displayText.length > 10) {
+        let newValue = Number(displayText.join('')).toExponential(3);
+        displayText = [newValue];
+        displayText = displayText.toString().split('');
+        display.textContent = displayText.join('');
+    }
+    else {
+        display.textContent = displayText.join('');
+    }
+
 });
 
 
@@ -134,17 +159,6 @@ function percent() {
     let value = ((Number(displayText.join(""))) / 100);
     displayText = [value];
     displayText = displayText.toString().split('');
-
-    if (displayText.length > 10) {
-        let newValue = Number(displayText.join('')).toExponential(3);
-        displayText = [newValue];
-        displayText = displayText.toString().split('');
-        display.textContent = displayText.join('');
-    }
-    else {
-        display.textContent = displayText.join('');
-    }
-    
 
 }
 
