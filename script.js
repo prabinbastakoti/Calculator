@@ -128,7 +128,6 @@ function clearScreen() {
     
 };
 
-
 // Change Negative or Positive sign
 
 function changeSign() {
@@ -167,7 +166,6 @@ function changeSign() {
     }
     
 }
-
 
 // ALgorithm For Percentage 
 
