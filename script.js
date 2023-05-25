@@ -89,9 +89,6 @@ const decimal = document.querySelector('.decimal');
 
 window.addEventListener('click', function () {
 
-
-    display.textContent = Number(displayText.join("")).toLocaleString('en-IN');
-
     if (!(displayText.length == 1 && displayText[0] == '0')) {
 
         clear.textContent = "C";
@@ -108,16 +105,14 @@ window.addEventListener('click', function () {
 
         if (displayText[0] != '-') {
 
-            const newValue = displayText.slice(0,9).join('');
-            display.textContent = Number(newValue).toLocaleString('en-IN');
-            displayText = newValue.toString().split('');
+            display.textContent = displayText.slice(0,9).join('');
+            displayText = display.textContent.toString().split('');
 
         }
         else if (displayText[0] == '-') {
 
-            const newValue = displayText.slice(0,10).join('');
-            display.textContent = Number(newValue).toLocaleString('en-IN');
-            displayText = newValue.toString().split('');
+            display.textContent = displayText.slice(0,10).join('');
+            displayText = display.textContent.toString().split('');
 
         }
     }
