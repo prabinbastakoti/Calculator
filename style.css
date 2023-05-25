@@ -52,8 +52,7 @@ main {
     position: absolute;
     right: 0;
     color: rgba(255, 255, 255, 0.82);
-    font-size: 52px;
-    margin-right: 1rem;
+    font-size: 50px;
     font-weight: 400;
     margin-bottom: 6rem;
 }

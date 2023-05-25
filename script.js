@@ -37,7 +37,7 @@
 // else if (b === '*') {
 //     alert(multiply(a,c));
 // } 
-// else if (b === '/') {
+// else (b === '/') {
 //     alert(divide(a,c));
 // } 
 // else {
@@ -60,6 +60,7 @@ const clear = document.querySelector('.clear');
 
 const sign = document.querySelector('.sign');
 const percentage = document.querySelector('.percentage');
+
 const divide = document.querySelector('.divide');
 
 const multiply = document.querySelector('.multiply');
@@ -81,18 +82,20 @@ const nine = document.querySelector('.nine');
 const decimal = document.querySelector('.decimal');
 
 
-
+let firstNumber = null;
+let secondNumber = null;
+let operation = null;
 
 
 // Write funtion for clearScreen
 
 
-window.addEventListener('click', function () {
+window.addEventListener('click', function (e) {
 
     if (!(displayText.length == 1 && displayText[0] == '0')) {
 
         clear.textContent = "C";
-        
+
     }
     else {
 
@@ -100,23 +103,28 @@ window.addEventListener('click', function () {
 
     }
 
-
     if (displayText.length > 9) {
 
         if (displayText[0] != '-') {
 
-            display.textContent = displayText.slice(0,9).join('');
+            display.textContent = displayText.slice(0, 9).join('');
             displayText = display.textContent.toString().split('');
 
         }
         else if (displayText[0] == '-') {
 
-            display.textContent = displayText.slice(0,10).join('');
+            display.textContent = displayText.slice(0, 10).join('');
             displayText = display.textContent.toString().split('');
 
         }
     }
-    
+
+    if(e.target == 'add') {
+        firstNumber = displayText.join('');
+        operation = 'add';
+        secondNumber
+    }
+
 });
 
 
@@ -124,7 +132,7 @@ function clearScreen() {
 
     displayText = [0];
     display.textContent = displayText;
-    
+
 };
 
 // Change Negative or Positive sign
@@ -139,13 +147,13 @@ function changeSign() {
 
         if (displayText[0] != '-') {
             displayText.unshift("-");
-            display.textContent = displayText.slice(0,10).join("");
+            display.textContent = displayText.slice(0, 10).join("");
             displayText = display.textContent.toString().split('');
 
         }
         else if (displayText[0] == '-') {
             displayText.shift("-");
-            
+
             display.textContent = displayText.join("");
         }
     }
@@ -155,15 +163,15 @@ function changeSign() {
             displayText.unshift("-");
             display.textContent = displayText.join("");
         }
-    
+
         // Remove '-' from the beginning
-    
+
         else if (displayText[0] == '-') {
             displayText.shift("-");
             display.textContent = displayText.join("");
         }
     }
-    
+
 }
 
 // ALgorithm For Percentage 
@@ -198,7 +206,7 @@ function nineDigit() {
         displayText.push("9");
 
     }
-    
+
     display.textContent = displayText.join("");
 }
 
@@ -207,14 +215,14 @@ function eightDigit() {
     if (displayText.length == 1 && displayText[0] == '0') {
 
         displayText = [8];
-        
+
     }
     else {
 
         displayText.push("8");
 
     }
-    
+
     display.textContent = displayText.join("");
 }
 
@@ -223,14 +231,14 @@ function sevenDigit() {
     if (displayText.length == 1 && displayText[0] == '0') {
 
         displayText = [7];
-        
+
     }
     else {
 
         displayText.push("7");
 
     }
-    
+
     display.textContent = displayText.join("");
 }
 
@@ -239,14 +247,14 @@ function sixDigit() {
     if (displayText.length == 1 && displayText[0] == '0') {
 
         displayText = [6];
-        
+
     }
     else {
 
         displayText.push("6");
 
     }
-    
+
     display.textContent = displayText.join("");
 }
 
@@ -255,14 +263,14 @@ function fiveDigit() {
     if (displayText.length == 1 && displayText[0] == '0') {
 
         displayText = [5];
-        
+
     }
     else {
 
         displayText.push("5");
 
     }
-    
+
     display.textContent = displayText.join("");
 }
 
@@ -271,14 +279,14 @@ function fourDigit() {
     if (displayText.length == 1 && displayText[0] == '0') {
 
         displayText = [4];
-        
+
     }
     else {
 
         displayText.push("4");
 
     }
-    
+
     display.textContent = displayText.join("");
 }
 
@@ -287,14 +295,14 @@ function threeDigit() {
     if (displayText.length == 1 && displayText[0] == '0') {
 
         displayText = [3];
-        
+
     }
     else {
 
         displayText.push("3");
 
     }
-    
+
     display.textContent = displayText.join("");
 }
 
@@ -303,14 +311,14 @@ function twoDigit() {
     if (displayText.length == 1 && displayText[0] == '0') {
 
         displayText = [2];
-        
+
     }
     else {
 
         displayText.push("2");
 
     }
-    
+
     display.textContent = displayText.join("");
 }
 
@@ -319,30 +327,30 @@ function oneDigit() {
     if (displayText.length == 1 && displayText[0] == '0') {
 
         displayText = [1];
-        
+
     }
     else {
 
         displayText.push("1");
 
     }
-    
+
     display.textContent = displayText.join("");
 }
 
 function decimalDigit() {
 
-    for (let i = 0; i < displayText.length ; i++) {
-        if (displayText[i] == '.'){
+    for (let i = 0; i < displayText.length; i++) {
+        if (displayText[i] == '.') {
             return;
         }
-        if (displayText[i] == 'e'){
+        if (displayText[i] == 'e') {
             displayText = [0];
         }
     }
 
     displayText.push(".");
-    
+
     display.textContent = displayText.join("");
 }
 
@@ -351,16 +359,37 @@ function zeroDigit() {
     if (displayText.length == 1 && displayText[0] == '0') {
 
         displayText = [0];
-        
+
     }
     else {
 
         displayText.push("0");
 
     }
-    
+
     display.textContent = displayText.join("");
 }
+
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+
+
+function operate(firstNumber, operation, secondNumber) {
+    if (operation == 'add') {
+        add(firstNumber, secondNumber);
+    }
+    else if (operation == 'subtract') {
+        subtract(firstNumber, secondNumber);
+    }
+    else if (operation === 'multiply') {
+        multiply(firstNumber, secondNumber);
+    }
+    else {
+        divide(firstNumber, secondNumber);
+    }
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------
 
 clear.addEventListener('click', clearScreen);
 sign.addEventListener('click', changeSign);
@@ -378,4 +407,10 @@ one.addEventListener('click', oneDigit);
 zero.addEventListener('click', zeroDigit);
 decimal.addEventListener('click', decimalDigit);
 
+
+// divide.addEventListener('click', division);
+// multiply.addEventListener('click', multiplication);
+// subtract.addEventListener('click', subtraction);
+// add.addEventListener('click', addition);
+// equal.addEventListener('click', equalsTo);
 
