@@ -17,8 +17,6 @@ function divide(firstNumber, secondNumber) {
 }
 
 
-let firstNumber, secondNumber, operation;
-
 
 function operate(firstNumber, secondNumber, operation) {
 
@@ -49,23 +47,63 @@ display.textContent = displayValue;
 
 const numbers = Array.from(document.querySelectorAll(".number"));
 
+const operations = Array.from(document.querySelectorAll(".operation"));
+
+const equal = document.querySelector('.equal-sign');
+
+let firstNumber, secondNumber, operation;
 
 function populateDisplay(e) {
 
     if (displayValue.length >= 9) {
-        return;
+        //Do nothing
     }
 
-    if(numbers.includes(e.target)){
+    else {
 
-        if (displayValue == '0') {
-            displayValue = e.target.textContent;
-            display.textContent = Number(displayValue).toLocaleString('en-IN');
+        if (numbers.includes(e.target)) {
+
+            if (displayValue == '0') {
+                displayValue = e.target.textContent;
+                display.textContent = Number(displayValue).toLocaleString('en-IN');
+            }
+            else {
+                displayValue = displayValue + e.target.textContent;
+                display.textContent = Number(displayValue).toLocaleString('en-IN');
+            }
+        }
+    }
+
+    if (operations.includes(e.target)) {
+
+        firstNumber = Number(displayValue);
+
+        if (e.target.textContent == '+') {
+            operation = 'add';
+            displayValue = 0;
+        }
+        else if (e.target.textContent == '-') {
+            operation = 'subtract';
+            displayValue = 0;
+        }
+        else if (e.target.textContent == '×') {
+            operation = 'multiply';
+            displayValue = 0;
         }
         else {
-            displayValue = displayValue + e.target.textContent;
-            display.textContent = Number(displayValue).toLocaleString('en-IN');
+            operation = 'divide';
+            displayValue = 0;
         }
+
+    }
+
+    if (e.target == equal) {
+
+        secondNumber = Number(displayValue);
+
+        displayValue = operate(firstNumber, secondNumber, operation);
+        display.textContent = Number(displayValue).toLocaleString('en-IN');
+
     }
 }
 
