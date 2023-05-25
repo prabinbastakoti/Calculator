@@ -52,7 +52,7 @@ const numbers = Array.from(document.querySelectorAll(".number"));
 
 function populateDisplay(e) {
 
-    if (displayValue.length >= 10) {
+    if (displayValue.length >= 9) {
         return;
     }
 
@@ -61,12 +61,10 @@ function populateDisplay(e) {
         if (displayValue == '0') {
             displayValue = e.target.textContent;
             display.textContent = Number(displayValue).toLocaleString('en-IN');
-            console.log(displayValue);
         }
         else {
             displayValue = displayValue + e.target.textContent;
             display.textContent = Number(displayValue).toLocaleString('en-IN');
-            console.log(displayValue);
         }
     }
 }
