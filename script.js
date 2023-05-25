@@ -89,6 +89,9 @@ const decimal = document.querySelector('.decimal');
 
 window.addEventListener('click', function () {
 
+
+    display.textContent = Number(displayText.join("")).toLocaleString('en-IN');
+
     if (!(displayText.length == 1 && displayText[0] == '0')) {
 
         clear.textContent = "C";
@@ -101,23 +104,24 @@ window.addEventListener('click', function () {
     }
 
 
-    if (displayText.length >= 9) {
+    if (displayText.length > 9) {
 
         if (displayText[0] != '-') {
 
-            display.textContent = displayText.slice(0,9).join('');
-            displayText = display.textContent.toString().split('');
+            const newValue = displayText.slice(0,9).join('');
+            display.textContent = Number(newValue).toLocaleString('en-IN');
+            displayText = newValue.toString().split('');
 
         }
         else if (displayText[0] == '-') {
 
-            display.textContent = displayText.slice(0,10).join('');
-            displayText = display.textContent.toString().split('');
+            const newValue = displayText.slice(0,10).join('');
+            display.textContent = Number(newValue).toLocaleString('en-IN');
+            displayText = newValue.toString().split('');
 
         }
     }
     
-
 });
 
 
@@ -175,7 +179,7 @@ function percent() {
     displayText = [value];
     displayText = displayText.toString().split('');
 
-    if (displayText.length > 10) {
+    if (displayText.length > 11) {
         let newValue = Number(displayText.join('')).toExponential(3);
         displayText = [newValue];
         displayText = displayText.toString().split('');
