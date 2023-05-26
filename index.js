@@ -51,7 +51,7 @@ const operations = Array.from(document.querySelectorAll(".operation"));
 
 const equal = document.querySelector('.equal-sign');
 
-let firstNumber, secondNumber, operation;
+let firstNumber = 0, secondNumber = 0, operation;
 
 function populateDisplay(e) {
 
@@ -76,23 +76,62 @@ function populateDisplay(e) {
 
     if (operations.includes(e.target)) {
 
-        firstNumber = Number(displayValue);
-
-        if (e.target.textContent == '+') {
-            operation = 'add';
-            displayValue = 0;
-        }
-        else if (e.target.textContent == '-') {
-            operation = 'subtract';
-            displayValue = 0;
-        }
-        else if (e.target.textContent == '×') {
-            operation = 'multiply';
+        if(firstNumber == 0) {
+            firstNumber = Number(displayValue);
             displayValue = 0;
         }
         else {
-            operation = 'divide';
-            displayValue = 0;
+            secondNumber = Number(displayValue);
+        }
+
+        if (e.target.textContent == '+') {
+            if (!operation) {
+                operation = 'add';
+            }
+            else {
+                displayValue = operate(firstNumber, secondNumber, operation);
+                display.textContent = Number(displayValue).toLocaleString('en-IN');
+                firstNumber = Number(displayValue);
+                displayValue = 0;
+                operation = 'add';
+            }
+
+        }
+        else if (e.target.textContent == '-') {
+            if (!operation) {
+                operation = 'subtract';
+            }
+            else {
+                displayValue = operate(firstNumber, secondNumber, operation);
+                display.textContent = Number(displayValue).toLocaleString('en-IN');
+                firstNumber = Number(displayValue);
+                displayValue = 0;
+                operation = 'subtract';
+            }
+        }
+        else if (e.target.textContent == '×') {
+            if (!operation) {
+                operation = 'multiply';
+            }
+            else {
+                displayValue = operate(firstNumber, secondNumber, operation);
+                display.textContent = Number(displayValue).toLocaleString('en-IN');
+                firstNumber = Number(displayValue);
+                displayValue = 0;
+                operation = 'multiply';
+            }
+        }
+        else {
+            if (!operation) {
+                operation = 'divide';
+            }
+            else {
+                displayValue = operate(firstNumber, secondNumber, operation);
+                display.textContent = Number(displayValue).toLocaleString('en-IN');
+                firstNumber = Number(displayValue);
+                displayValue = 0;
+                operation = 'divide';
+            }
         }
 
     }
