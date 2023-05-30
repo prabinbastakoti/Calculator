@@ -1,7 +1,7 @@
 
 
 function add(firstNumber, secondNumber) {
-    if(firstNumber == 'Error') {
+    if (firstNumber == 'Error') {
         displayValue = "Error";
         return displayValue;
     }
@@ -9,7 +9,7 @@ function add(firstNumber, secondNumber) {
 }
 
 function subtract(firstNumber, secondNumber) {
-    if(firstNumber == 'Error') {
+    if (firstNumber == 'Error') {
         displayValue = "Error";
         return displayValue;
     }
@@ -17,7 +17,7 @@ function subtract(firstNumber, secondNumber) {
 }
 
 function multiply(firstNumber, secondNumber) {
-    if(firstNumber == 'Error') {
+    if (firstNumber == 'Error') {
         displayValue = "Error";
         return displayValue;
     }
@@ -25,7 +25,7 @@ function multiply(firstNumber, secondNumber) {
 }
 
 function divide(firstNumber, secondNumber) {
-    if(firstNumber == 'Error') {
+    if (firstNumber == 'Error') {
         displayValue = "Error";
         return displayValue;
     }
@@ -74,9 +74,11 @@ const clear = document.querySelector('.clear');
 
 const decimal = document.querySelector('.decimal');
 
+const sign = document.querySelector('.sign');
+
 
 function populateDisplay(e) {
-    
+
     if (displayValue.length >= 9) {
         // Do nothing
     }
@@ -98,7 +100,7 @@ function populateDisplay(e) {
 
     if (operations.includes(e.target)) {
 
-        if(!firstNumber) {
+        if (!firstNumber) {
             firstNumber = Number(displayValue);
             displayValue = 0;
         }
@@ -113,7 +115,7 @@ function populateDisplay(e) {
             }
             else {
                 displayValue = operate(firstNumber, secondNumber, operation);
-                if(displayValue == 'Error') {
+                if (displayValue == 'Error') {
                     display.textContent = displayValue;
                 }
                 else {
@@ -133,7 +135,7 @@ function populateDisplay(e) {
             }
             else {
                 displayValue = operate(firstNumber, secondNumber, operation);
-                if(displayValue == 'Error') {
+                if (displayValue == 'Error') {
                     display.textContent = displayValue;
                 }
                 else {
@@ -152,7 +154,7 @@ function populateDisplay(e) {
             }
             else {
                 displayValue = operate(firstNumber, secondNumber, operation);
-                if(displayValue == 'Error') {
+                if (displayValue == 'Error') {
                     display.textContent = displayValue;
                 }
                 else {
@@ -171,7 +173,7 @@ function populateDisplay(e) {
             }
             else {
                 displayValue = operate(firstNumber, secondNumber, operation);
-                if(displayValue == 'Error') {
+                if (displayValue == 'Error') {
                     display.textContent = displayValue;
                 }
                 else {
@@ -189,14 +191,14 @@ function populateDisplay(e) {
 
     if (e.target == equal) {
 
-        if(!firstNumber) {
+        if (!firstNumber) {
             return;
         }
 
-        if(!secondNumber) {
+        if (!secondNumber) {
             secondNumber = Number(displayValue);
         }
-        
+
 
         displayValue = operate(firstNumber, secondNumber, operation);
 
@@ -209,7 +211,7 @@ function populateDisplay(e) {
             firstNumber = Number(displayValue);
         }
 
-        if (displayValue.toString().length > 9){
+        if (displayValue.toString().length > 9) {
             display.textContent = displayValue.toExponential(3);
         }
         else {
@@ -220,9 +222,9 @@ function populateDisplay(e) {
         displayValue = 0;
     }
 
-    if (!(displayValue == 0)){
+    if (!(displayValue == 0)) {
         clear.textContent = "C";
-    } 
+    }
 
     if (e.target == clear) {
         firstNumber = undefined;
@@ -243,7 +245,7 @@ function populateDisplay(e) {
         else {
             number = Array.from(displayValue);
         }
-        
+
         for (let i = 0; i < number.length; i++) {
             if (number[i] == '.') {
                 return;
@@ -255,6 +257,45 @@ function populateDisplay(e) {
         number.push('.');
         displayValue = number.join('');
         display.textContent = displayValue;
+    }
+
+    if (e.target == sign) {
+
+        let number = Array.from(displayValue);
+
+        if (displayValue == 0) {
+            return;
+        }
+
+        if (displayValue.length > 9) {
+
+            if (number[0] != '-') {
+                number.unshift("-");
+                displayValue = number.slice(0, 10).join("");
+                display.textContent = Number(displayValue).toLocaleString('en-IN');
+            }
+            else if (number[0] == '-') {
+                number.shift("-");
+                displayValue = number.join("");
+                display.textContent = Number(displayValue).toLocaleString('en-IN');
+            }
+        }
+
+        else {
+
+            if (number[0] != '-') {
+                number.unshift("-");
+                displayValue = number.join("");
+                display.textContent = Number(displayValue).toLocaleString('en-IN');
+            }
+            else if (number[0] == '-') {
+                number.shift("-");
+                displayValue = number.join("");
+                display.textContent = Number(displayValue).toLocaleString('en-IN');
+            }
+
+        }
+
     }
 }
 
