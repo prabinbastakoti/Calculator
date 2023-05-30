@@ -78,10 +78,6 @@ let firstNumber, secondNumber, operation;
 
 
 function populateDisplay(e) {
-
-    if (!(displayValue == 0)){
-        clear.textContent = "C";
-    } 
     
     if (displayValue.length >= 9) {
         // Do nothing
@@ -119,8 +115,14 @@ function populateDisplay(e) {
             }
             else {
                 displayValue = operate(firstNumber, secondNumber, operation);
-                display.textContent = Number(displayValue).toLocaleString('en-IN');
-                firstNumber = Number(displayValue);
+                if(displayValue == 'Error') {
+                    display.textContent = displayValue;
+                }
+                else {
+                    display.textContent = Number(displayValue).toLocaleString('en-IN');
+                    firstNumber = Number(displayValue);
+                }
+                firstNumber = displayValue;
                 displayValue = 0;
                 secondNumber = 0;
                 operation = 'add';
@@ -133,8 +135,14 @@ function populateDisplay(e) {
             }
             else {
                 displayValue = operate(firstNumber, secondNumber, operation);
-                display.textContent = Number(displayValue).toLocaleString('en-IN');
-                firstNumber = Number(displayValue);
+                if(displayValue == 'Error') {
+                    display.textContent = displayValue;
+                }
+                else {
+                    display.textContent = Number(displayValue).toLocaleString('en-IN');
+                    firstNumber = Number(displayValue);
+                }
+                firstNumber = displayValue;
                 displayValue = 0;
                 secondNumber = 0;
                 operation = 'subtract';
@@ -146,8 +154,14 @@ function populateDisplay(e) {
             }
             else {
                 displayValue = operate(firstNumber, secondNumber, operation);
-                display.textContent = Number(displayValue).toLocaleString('en-IN');
-                firstNumber = Number(displayValue);
+                if(displayValue == 'Error') {
+                    display.textContent = displayValue;
+                }
+                else {
+                    display.textContent = Number(displayValue).toLocaleString('en-IN');
+                    firstNumber = Number(displayValue);
+                }
+                firstNumber = displayValue;
                 displayValue = 0;
                 secondNumber = 0;
                 operation = 'multiply';
@@ -159,8 +173,14 @@ function populateDisplay(e) {
             }
             else {
                 displayValue = operate(firstNumber, secondNumber, operation);
-                display.textContent = Number(displayValue).toLocaleString('en-IN');
-                firstNumber = Number(displayValue);
+                if(displayValue == 'Error') {
+                    display.textContent = displayValue;
+                }
+                else {
+                    display.textContent = Number(displayValue).toLocaleString('en-IN');
+                    firstNumber = Number(displayValue);
+                }
+                firstNumber = displayValue;
                 displayValue = 0;
                 secondNumber = 0;
                 operation = 'divide';
@@ -175,7 +195,10 @@ function populateDisplay(e) {
             return;
         }
 
-        secondNumber = Number(displayValue);
+        if(!secondNumber) {
+            secondNumber = Number(displayValue);
+        }
+        
 
         displayValue = operate(firstNumber, secondNumber, operation);
 
@@ -192,12 +215,13 @@ function populateDisplay(e) {
         else {
             firstNumber = Number(displayValue);
         }
-        
-        secondNumber = 0;
-        operation = undefined;
         displayValue = 0;
-        
     }
+
+
+    if (!(displayValue == 0)){
+        clear.textContent = "C";
+    } 
 
     if (e.target == clear) {
         firstNumber = undefined;
@@ -207,6 +231,7 @@ function populateDisplay(e) {
         display.textContent = displayValue;
         clear.textContent = "AC";
     }
+
 }
 
 window.addEventListener('click', populateDisplay);
