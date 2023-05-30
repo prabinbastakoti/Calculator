@@ -76,6 +76,8 @@ const decimal = document.querySelector('.decimal');
 
 const sign = document.querySelector('.sign');
 
+const percent = document.querySelector('.percentage');
+
 
 function populateDisplay(e) {
 
@@ -222,7 +224,7 @@ function populateDisplay(e) {
         else {
             display.textContent = displayValue;
         }
-        
+
         displayValue = displayValue.toString();
     }
 
@@ -247,7 +249,7 @@ function populateDisplay(e) {
         }
 
         if (number[0] != '-') {
-            
+
             number.push(".");
             displayValue = number.slice(0, 9).join('');
             display.textContent = displayValue;
@@ -306,6 +308,20 @@ function populateDisplay(e) {
 
         }
 
+    }
+
+    if (e.target == percent) {
+
+        displayValue = (displayValue / 100).toString();
+
+        if (displayValue.length > 10) {
+
+            display.textContent = Number(displayValue).toExponential(3);
+
+        }
+        else {
+            display.textContent = displayValue;
+        }
     }
 
     if ((displayValue != '0')) {
