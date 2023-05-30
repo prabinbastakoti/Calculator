@@ -71,11 +71,18 @@ const operations = Array.from(document.querySelectorAll(".operation"));
 
 const equal = document.querySelector('.equal-sign');
 
+const clear = document.querySelector('.clear');
+
 let firstNumber, secondNumber, operation;
 
-function populateDisplay(e) {
-    
 
+
+function populateDisplay(e) {
+
+    if (!(displayValue == 0)){
+        clear.textContent = "C";
+    } 
+    
     if (displayValue.length >= 9) {
         // Do nothing
     }
@@ -190,6 +197,15 @@ function populateDisplay(e) {
         operation = undefined;
         displayValue = 0;
         
+    }
+
+    if (e.target == clear) {
+        firstNumber = undefined;
+        secondNumber = undefined;
+        operation = undefined;
+        displayValue = 0;
+        display.textContent = displayValue;
+        clear.textContent = "AC";
     }
 }
 
