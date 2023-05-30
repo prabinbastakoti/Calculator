@@ -316,9 +316,14 @@ function populateDisplay(e) {
 
         if (displayValue.length > 10) {
 
-            display.textContent = Number(displayValue).toExponential(3);
+            displayValue = Number(displayValue).toExponential(3);
+
+            display.textContent = displayValue;
+
+            displayValue = displayValue.toString();
 
         }
+        
         else {
             display.textContent = displayValue;
         }
