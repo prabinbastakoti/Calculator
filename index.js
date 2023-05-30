@@ -200,6 +200,15 @@ function populateDisplay(e) {
 
         displayValue = operate(firstNumber, secondNumber, operation);
 
+        if (displayValue == 'Error') {
+            firstNumber = displayValue;
+            display.textContent = displayValue;
+            return;
+        }
+        else {
+            firstNumber = Number(displayValue);
+        }
+
         if (displayValue.toString().length > 9){
             display.textContent = displayValue.toExponential(3);
         }
@@ -207,12 +216,7 @@ function populateDisplay(e) {
             display.textContent = Number(displayValue).toLocaleString('en-IN');
         }
 
-        if (displayValue == 'Error') {
-            firstNumber = displayValue;
-        }
-        else {
-            firstNumber = Number(displayValue);
-        }
+
         displayValue = 0;
     }
 
