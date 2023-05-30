@@ -206,7 +206,7 @@ function populateDisplay(e) {
             display.textContent = displayValue.toExponential(3);
         }
         else {
-            display.textContent = displayValue;
+            display.textContent = Number(displayValue).toLocaleString('en-IN');
         }
 
         if (displayValue == 'Error') {
