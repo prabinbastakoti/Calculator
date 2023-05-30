@@ -81,6 +81,7 @@ function populateDisplay(e) {
 
     if (displayValue.length >= 9) {
         // Do nothing
+
     }
 
     else {
@@ -89,11 +90,11 @@ function populateDisplay(e) {
 
             if (displayValue == '0') {
                 displayValue = e.target.textContent;
-                display.textContent = Number(displayValue).toLocaleString('en-IN');
+                display.textContent = displayValue;
             }
             else {
                 displayValue = displayValue + e.target.textContent;
-                display.textContent = Number(displayValue).toLocaleString('en-IN');
+                display.textContent = displayValue;
             }
         }
     }
@@ -119,7 +120,7 @@ function populateDisplay(e) {
                     display.textContent = displayValue;
                 }
                 else {
-                    display.textContent = Number(displayValue).toLocaleString('en-IN');
+                    display.textContent = displayValue;
                     firstNumber = Number(displayValue);
                 }
                 firstNumber = displayValue;
@@ -139,7 +140,7 @@ function populateDisplay(e) {
                     display.textContent = displayValue;
                 }
                 else {
-                    display.textContent = Number(displayValue).toLocaleString('en-IN');
+                    display.textContent = displayValue;
                     firstNumber = Number(displayValue);
                 }
                 firstNumber = displayValue;
@@ -158,7 +159,7 @@ function populateDisplay(e) {
                     display.textContent = displayValue;
                 }
                 else {
-                    display.textContent = Number(displayValue).toLocaleString('en-IN');
+                    display.textContent = displayValue;
                     firstNumber = Number(displayValue);
                 }
                 firstNumber = displayValue;
@@ -177,7 +178,7 @@ function populateDisplay(e) {
                     display.textContent = displayValue;
                 }
                 else {
-                    display.textContent = Number(displayValue).toLocaleString('en-IN');
+                    display.textContent = displayValue;
                     firstNumber = Number(displayValue);
                 }
                 firstNumber = displayValue;
@@ -215,31 +216,17 @@ function populateDisplay(e) {
             display.textContent = displayValue.toExponential(3);
         }
         else {
-            display.textContent = Number(displayValue).toLocaleString('en-IN');
+            display.textContent = displayValue;
         }
-
-
-        displayValue = 0;
-    }
-
-    if (!(displayValue == 0)) {
-        clear.textContent = "C";
-    }
-
-    if (e.target == clear) {
-        firstNumber = undefined;
-        secondNumber = undefined;
-        operation = undefined;
-        displayValue = 0;
-        display.textContent = displayValue;
-        clear.textContent = "AC";
+        
+        displayValue = displayValue.toString();
     }
 
     if (e.target == decimal) {
 
         let number;
 
-        if (displayValue == 0) {
+        if (displayValue == '0') {
             number = [0];
         }
         else {
@@ -254,30 +241,46 @@ function populateDisplay(e) {
                 number = [0];
             }
         }
-        number.push('.');
-        displayValue = number.join('');
-        display.textContent = displayValue;
+
+        if (number[0] != '-') {
+            
+            number.push(".");
+            displayValue = number.slice(0, 9).join('');
+            display.textContent = displayValue;
+
+        }
+        else if (number[0] == '-') {
+
+            number.push(".");
+            displayValue = number.slice(0, 10).join('');
+            display.textContent = displayValue;
+
+        }
     }
 
     if (e.target == sign) {
 
-        let number = Array.from(displayValue);
+        let number;
 
-        if (displayValue == 0) {
-            return;
+        if (displayValue == '0') {
+            number = [0];
+        }
+        else {
+            number = Array.from(displayValue);
         }
 
-        if (displayValue.length > 9) {
+
+        if (displayValue.length >= 9) {
 
             if (number[0] != '-') {
                 number.unshift("-");
                 displayValue = number.slice(0, 10).join("");
-                display.textContent = Number(displayValue).toLocaleString('en-IN');
+                display.textContent = displayValue.toString();
             }
             else if (number[0] == '-') {
                 number.shift("-");
                 displayValue = number.join("");
-                display.textContent = Number(displayValue).toLocaleString('en-IN');
+                display.textContent = displayValue.toString();
             }
         }
 
@@ -286,16 +289,29 @@ function populateDisplay(e) {
             if (number[0] != '-') {
                 number.unshift("-");
                 displayValue = number.join("");
-                display.textContent = Number(displayValue).toLocaleString('en-IN');
+                display.textContent = displayValue.toString();
             }
             else if (number[0] == '-') {
                 number.shift("-");
                 displayValue = number.join("");
-                display.textContent = Number(displayValue).toLocaleString('en-IN');
+                display.textContent = displayValue.toString();
             }
 
         }
 
+    }
+
+    if ((displayValue != '0')) {
+        clear.textContent = "C";
+    }
+
+    if (e.target == clear) {
+        firstNumber = undefined;
+        secondNumber = undefined;
+        operation = undefined;
+        displayValue = 0;
+        display.textContent = displayValue;
+        clear.textContent = "AC";
     }
 }
 
