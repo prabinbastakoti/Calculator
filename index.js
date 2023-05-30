@@ -36,8 +36,6 @@ function divide(firstNumber, secondNumber) {
     return (firstNumber / secondNumber);
 }
 
-
-
 function operate(firstNumber, secondNumber, operation) {
 
     if (operation == 'add') {
@@ -58,10 +56,11 @@ function operate(firstNumber, secondNumber, operation) {
 
 }
 
+let displayValue = 0;
+
+let firstNumber, secondNumber, operation;
 
 const display = document.querySelector('.display-screen');
-
-let displayValue = 0;
 
 display.textContent = displayValue;
 
@@ -73,8 +72,7 @@ const equal = document.querySelector('.equal-sign');
 
 const clear = document.querySelector('.clear');
 
-let firstNumber, secondNumber, operation;
-
+const decimal = document.querySelector('.decimal');
 
 
 function populateDisplay(e) {
@@ -218,7 +216,6 @@ function populateDisplay(e) {
         displayValue = 0;
     }
 
-
     if (!(displayValue == 0)){
         clear.textContent = "C";
     } 
@@ -232,6 +229,30 @@ function populateDisplay(e) {
         clear.textContent = "AC";
     }
 
+    if (e.target == decimal) {
+
+        let number;
+
+        if (displayValue == 0) {
+            number = [0];
+        }
+        else {
+            number = Array.from(displayValue);
+        }
+        
+        for (let i = 0; i < number.length; i++) {
+            if (number[i] == '.') {
+                return;
+            }
+            if (number[i] == 'e') {
+                number = [0];
+            }
+        }
+        number.push('.');
+        displayValue = number.join('');
+        display.textContent = displayValue;
+    }
 }
 
 window.addEventListener('click', populateDisplay);
+
