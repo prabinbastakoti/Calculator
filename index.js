@@ -1,18 +1,38 @@
 
 
 function add(firstNumber, secondNumber) {
+    if(firstNumber == 'Error') {
+        displayValue = "Error";
+        return displayValue;
+    }
     return (firstNumber + secondNumber);
 }
 
 function subtract(firstNumber, secondNumber) {
+    if(firstNumber == 'Error') {
+        displayValue = "Error";
+        return displayValue;
+    }
     return (firstNumber - secondNumber);
 }
 
 function multiply(firstNumber, secondNumber) {
+    if(firstNumber == 'Error') {
+        displayValue = "Error";
+        return displayValue;
+    }
     return (firstNumber * secondNumber);
 }
 
 function divide(firstNumber, secondNumber) {
+    if(firstNumber == 'Error') {
+        displayValue = "Error";
+        return displayValue;
+    }
+    if (secondNumber == '0') {
+        displayValue = "Error";
+        return displayValue;
+    }
     return (firstNumber / secondNumber);
 }
 
@@ -51,12 +71,13 @@ const operations = Array.from(document.querySelectorAll(".operation"));
 
 const equal = document.querySelector('.equal-sign');
 
-let firstNumber = 0, secondNumber = 0, operation;
+let firstNumber, secondNumber, operation;
 
 function populateDisplay(e) {
+    
 
     if (displayValue.length >= 9) {
-        //Do nothing
+        // Do nothing
     }
 
     else {
@@ -76,12 +97,13 @@ function populateDisplay(e) {
 
     if (operations.includes(e.target)) {
 
-        if(firstNumber == 0) {
+        if(!firstNumber) {
             firstNumber = Number(displayValue);
             displayValue = 0;
         }
         else {
             secondNumber = Number(displayValue);
+            displayValue = 0;
         }
 
         if (e.target.textContent == '+') {
@@ -93,6 +115,7 @@ function populateDisplay(e) {
                 display.textContent = Number(displayValue).toLocaleString('en-IN');
                 firstNumber = Number(displayValue);
                 displayValue = 0;
+                secondNumber = 0;
                 operation = 'add';
             }
 
@@ -106,6 +129,7 @@ function populateDisplay(e) {
                 display.textContent = Number(displayValue).toLocaleString('en-IN');
                 firstNumber = Number(displayValue);
                 displayValue = 0;
+                secondNumber = 0;
                 operation = 'subtract';
             }
         }
@@ -118,6 +142,7 @@ function populateDisplay(e) {
                 display.textContent = Number(displayValue).toLocaleString('en-IN');
                 firstNumber = Number(displayValue);
                 displayValue = 0;
+                secondNumber = 0;
                 operation = 'multiply';
             }
         }
@@ -130,6 +155,7 @@ function populateDisplay(e) {
                 display.textContent = Number(displayValue).toLocaleString('en-IN');
                 firstNumber = Number(displayValue);
                 displayValue = 0;
+                secondNumber = 0;
                 operation = 'divide';
             }
         }
@@ -138,11 +164,32 @@ function populateDisplay(e) {
 
     if (e.target == equal) {
 
+        if(!firstNumber) {
+            return;
+        }
+
         secondNumber = Number(displayValue);
 
         displayValue = operate(firstNumber, secondNumber, operation);
-        display.textContent = Number(displayValue).toLocaleString('en-IN');
 
+        if (displayValue.toString().length > 9){
+            display.textContent = displayValue.toExponential(3);
+        }
+        else {
+            display.textContent = displayValue;
+        }
+
+        if (displayValue == 'Error') {
+            firstNumber = displayValue;
+        }
+        else {
+            firstNumber = Number(displayValue);
+        }
+        
+        secondNumber = 0;
+        operation = undefined;
+        displayValue = 0;
+        
     }
 }
 
