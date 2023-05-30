@@ -92,6 +92,10 @@ function populateDisplay(e) {
                 displayValue = e.target.textContent;
                 display.textContent = displayValue;
             }
+            else if (displayValue == '-0') {
+                displayValue = '-' + e.target.textContent;
+                display.textContent = displayValue;
+            }
             else {
                 displayValue = displayValue + e.target.textContent;
                 display.textContent = displayValue;
@@ -263,6 +267,9 @@ function populateDisplay(e) {
         let number;
 
         if (displayValue == '0') {
+            number = [0];
+        }
+        else if (displayValue == 'Error') {
             number = [0];
         }
         else {
